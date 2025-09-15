@@ -3,23 +3,61 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev-test": "next dev --turbopack",
+    "dev": "next dev --https --key=localhost-key.pem --cert=localhost.pem",
+    "dev:https": "next dev -H front.nodewebdev.online -p 3000 --experimental-https --experimental-https-key ./localhost-key.pem --experimental-https-cert ./localhost.pem",
+    "build": "next build",
+    "build:production": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "test": "jest --passWithNoTests",
+    "lint": "eslint \"src/**/*.{tsx,ts,jsx,js}\" && stylelint \"src/**/*.{scss,css}\" --allow-empty-input",
+    "lint:fix": "eslint --fix \"src/**/*.{tsx,ts,jsx,js}\" && stylelint --fix \"src/**/*.{scss,css}\" --allow-empty-input",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
+    "generate-api": "pnpm openapi-typescript //https://nodewebdev.online/api/v1-json// -o ./shared/schemas/api/schema.ts",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@apollo/client": "^4.0.5",
+    "@irondragons/ui-lib-inctagram": "^1.0.26",
+    "@it-incubator/prettier-config": "^0.1.2",
+    "@it-incubator/stylelint-config": "^2.0.0",
+    "graphql": "^16.11.0",
+    "next": "15.5.3",
+    "openapi-fetch": "^0.14.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.3"
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "openapi-typescript": "^7.9.1",
+    "prettier": "3.6.2",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss}": [
+      "prettier --write"
+    ]
   }
 }
