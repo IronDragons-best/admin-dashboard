@@ -1,6 +1,7 @@
-import { ApolloProvider } from '@apollo/client/react';
-import client from '../../lib/apolloClient';
 import './globals.css';
+import ApolloWrapper from '@/src/app/ApolloWrapper';
+import { MainLayoutComponent } from '@/src/common/components/mainLayout';
+import { LayoutWithProvider } from '@/src/common/components/layoutWithProvider';
 
 export const metadata = {
   title: 'Admin Dashboard',
@@ -11,7 +12,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <ApolloProvider client={client}>{children}</ApolloProvider>
+        <LayoutWithProvider component={MainLayoutComponent}>
+          <ApolloWrapper>{children}</ApolloWrapper>
+        </LayoutWithProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink, gql } from '@apollo/client';
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -7,5 +7,20 @@ const client = new ApolloClient({
   }),
   cache: new InMemoryCache(),
 });
+
+client
+  .query({
+    query: gql`
+      query GetLocations {
+        locations {
+          id
+          name
+          description
+          photo
+        }
+      }
+    `,
+  })
+  .then(result => console.log(result));
 
 export default client;
