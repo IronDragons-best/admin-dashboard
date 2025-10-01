@@ -1,0 +1,126 @@
+@use '../../../../../src/styles/colors' as *;
+@use '../../../../../src/styles/fonts' as *;
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 23px;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.update {
+  @include regular-text-14;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.search {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.pagination {
+  @include regular-text-14;
+
+  color: $light-100;
+  margin-bottom: 48px;
+}
+
+.table {
+  @include regular-text-14;
+
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: $light-100;
+  margin-bottom: 36px;
+  border: 1px solid $dark-500;
+}
+
+.table thead tr {
+  background: $dark-500;
+}
+
+.table thead tr th {
+  @include semi-bold-14;
+
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid $dark-500;
+}
+
+.table thead tr th:first-child,
+.table tbody tr td:first-child {
+  padding-left: 24px;
+}
+
+.table tbody tr td {
+  padding: 19px 0 16px 0;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid $dark-500;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+  padding-bottom: 17px;
+}
+
+.colFullName {
+  width: 214px;
+}
+
+.colSecond {
+  width: 163px;
+}
+
+.colAmount {
+  width: 173px;
+}
+
+.colType {
+  width: 198px;
+}
+
+.headerCell {
+  display: flex;
+  align-items: center;
+}
+
+.sortIcons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 9px;
+}
+
+.sortIcon {
+  width: 8px;
+  height: 6px;
+  color: $dark-100;
+  cursor: pointer;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+}
+
+.userAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: block;
+}
+
+.avatarWrapper {
+  padding-bottom: 24px;
+}

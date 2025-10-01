@@ -1,5 +1,6 @@
 export const PATH = {
   home: '/',
+  payments: '/payments',
   profile: '/profile',
   user_profile: (userId: string) => `/profile/${userId}`,
   profile_settings: (userId: string) => `/profile/${userId}/settings`,
