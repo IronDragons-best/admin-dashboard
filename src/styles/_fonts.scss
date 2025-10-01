@@ -99,6 +99,12 @@
   line-height: $line-height-s;
 }
 
+@mixin semi-bold-14 {
+  font-size: $font-size-s;
+  font-weight: $font-weight-semi-bold;
+  line-height: $line-height-m;
+}
+
 .regular-link,
 .regular-link:visited {
   font-size: $font-size-s;
